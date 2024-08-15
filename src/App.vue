@@ -27,6 +27,68 @@ export default {
       this.image = Cookies.get("image");
       this.roleId = Cookies.get("role_id");
     },
+    // onSwipeLeft() {
+    //   if (this.roleId == 4){
+    //     if (this.$route.name === 'profile') {
+    //       this.$router.push({ name: 'home' });
+    //     } else if (this.$route.name === 'home') {
+    //       this.$router.push({ name: 'product' });
+    //     } else if (this.$route.name === 'product') {
+    //       this.$router.push({ name: 'order' });
+    //     } else if (this.$route.name === 'order') {
+    //       this.$router.push({ name: 'orderlist' });
+    //     } else if (this.$route.name === 'orderlist') {
+    //       this.$router.push({ name: 'orderReport' });
+    //     } else if (this.$route.name === 'orderReport') {
+    //       this.$router.push({ name: 'user' });
+    //     }
+    //   } else if (this.roleId == 1) {
+    //     if (this.$route.name === 'profile') {
+    //       this.$router.push({ name: 'home' });
+    //     } else if (this.$route.name === 'home') {
+    //       this.$router.push({ name: 'order' });
+    //     } else if (this.$route.name === 'order') {
+    //       this.$router.push({ name: 'orderlist' });
+    //     }
+    //   } else if (this.roleId == 2 || this.roleId == 3) {
+    //     if (this.$route.name === 'profile') {
+    //       this.$router.push({ name: 'home' });
+    //     } else if (this.$route.name === 'home') {
+    //       this.$router.push({ name: 'orderlist' });
+    //     }
+    //   }
+    // },
+    // onSwipeRight() {
+    //   if (this.roleId == 4){
+    //     if (this.$route.name === 'user') {
+    //       this.$router.push({ name: 'orderReport' });
+    //     } else if (this.$route.name === 'orderReport') {
+    //       this.$router.push({ name: 'orderlist' });
+    //     } else if (this.$route.name === 'orderlist') {
+    //       this.$router.push({ name: 'order' });
+    //     } else if (this.$route.name === 'order') {
+    //       this.$router.push({ name: 'product' });
+    //     } else if (this.$route.name === 'product') {
+    //       this.$router.push({ name: 'home' });
+    //     } else if (this.$route.name === 'home') {
+    //       this.$router.push({ name: 'profile' });
+    //     }
+    //   } else if (this.roleId == 1) {
+    //     if (this.$route.name === 'orderlist') {
+    //       this.$router.push({ name: 'order' });
+    //     } else if (this.$route.name === 'order') {
+    //       this.$router.push({ name: 'home' });
+    //     } else if (this.$route.name === 'home') {
+    //       this.$router.push({ name: 'profile' });
+    //     }
+    //   } else if (this.roleId == 2 || this.roleId == 3) {
+    //     if (this.$route.name === 'orderlist') {
+    //       this.$router.push({ name: 'home' });
+    //     } else if (this.$route.name === 'home') {
+    //       this.$router.push({ name: 'profile' });
+    //     }
+    //   }
+    // }
   }
 }
 </script>
