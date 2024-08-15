@@ -14,7 +14,7 @@
                                 <option class="text-center" value="paid">Paid</option>
                             </select>
                         </div>
-                        <div class="card-body" style="overflow-y: auto; max-height: 650px;">
+                        <div class="card-body" style="overflow-y: auto; max-height: 550px;">
                             <div class="table-responsive">
                                 <table class="table table-hoverable">
                                     <thead>
