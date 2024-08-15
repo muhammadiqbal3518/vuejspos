@@ -5,81 +5,87 @@
                 <div class="col-12 text-left mb-2">
                     <RouterLink to="/order-list" class="btn btn-warning">Back</RouterLink>
                 </div>
-                <div class="col-lg-5 col-md-12">
+                <div class="col-12">
                     <div class="card">
-                        <div class="card-body" style="overflow-y: auto; max-height: 600px;">
-                            <div class="table-responsive">
-                                <table class="table table-hoverable table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-left">Customer Name : {{ order.customer_name }}</td>
-                                            <td class="text-left">Table No : {{ order.table_no }}</td>
-                                        </tr>
-                                        <tr>
-                                            
-                                            <td class="text-left">Tanggal Order : {{ order.order_date }}</td>
-                                            <td class="text-left">Status Order : {{ order.status }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Waiters : {{ order.waiters ? order.waiters.name : '-' }}</td>
-                                            <td class="text-left">Cashier : {{ order.cashier ? order.cashier.name : '-' }}</td>
-                                        </tr>
-                                        <tr>
-                                            
-                                            <td class="text-left">Order Time : {{ order.order_time }}</td>
-                                            <td class="text-left">Grand Total : Rp. {{ formatCurrency(order.total) }},00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12">
-                                <div class="py-3">
-                                    <!-- jika status ordered dan user role chef -->
-                                    <button v-if="order.status == 'ordered' && (roleId == 2)" type="button" class="btn btn-sm btn-primary" @click="setAsDone(order.id)">
-                                        Set As Done
-                                    </button>
-                                    <!-- jika status done dan user role cashier / manager -->
-                                    <button v-if="(order.status == 'done') && (roleId == 3 || roleId == 4)" type="button" class="btn btn-sm btn-primary" @click="setAsPaid(order.id)">
-                                        Set As Paid
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-12">
-                    <div class="card">
-                        <div class="card-body" style="overflow-y: auto; max-height: 600px;">
-                            <div class="table-responsive">
-                                <table class="table table-hoverable">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-left">#</th>
-                                            <th class="text-left">Item Name</th>
-                                            <th class="text-left">Qty</th>
-                                            <th class="text-left">Price</th>
-                                            <th class="text-left">Total/item</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody v-if="processing == false">
-                                        <tr v-for="(loop, index) in order_details" :key="index">
-                                            <td class="text-left">{{ index+1 }}</td>
-                                            <td class="text-left">{{ loop.item.name }}</td>
-                                            <td class="text-left">{{ loop.qty }}</td>
-                                            <td class="text-left">Rp. {{ formatCurrency(loop.price) }},00</td>
-                                            <td class="text-left">Rp. {{ formatCurrency(loop.price * loop.qty) }},00</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody v-if="processing == true">
-                                        <tr>
-                                            <td colspan="5" class="text-center">
-                                                <div class="spinner-border text-primary" role="status">
-                                                    <span class="visually-hidden"></span>
+                        <div class="card-body" style="overflow-y: auto; max-height: 550px;">
+                            <div class="row">
+                                <div class="col-lg-5 col-md-12">
+                                    <div class="card">
+                                        <div class="card-body" style="overflow-y: auto; max-height: 500px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-hoverable table-bordered">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-left">Customer Name : {{ order.customer_name }}</td>
+                                                            <td class="text-left">Table No : {{ order.table_no }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            
+                                                            <td class="text-left">Tanggal Order : {{ order.order_date }}</td>
+                                                            <td class="text-left">Status Order : {{ order.status }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-left">Waiters : {{ order.waiters ? order.waiters.name : '-' }}</td>
+                                                            <td class="text-left">Cashier : {{ order.cashier ? order.cashier.name : '-' }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            
+                                                            <td class="text-left">Order Time : {{ order.order_time }}</td>
+                                                            <td class="text-left">Grand Total : Rp. {{ formatCurrency(order.total) }},00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="py-3">
+                                                    <button v-if="order.status == 'ordered' && (roleId == 2)" type="button" class="btn btn-sm btn-primary" @click="setAsDone(order.id)">
+                                                        Set As Done
+                                                    </button>
+                                                    <button v-if="(order.status == 'done') && (roleId == 3 || roleId == 4)" type="button" class="btn btn-sm btn-primary" @click="setAsPaid(order.id)">
+                                                        Set As Paid
+                                                    </button>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-12">
+                                    <div class="card">
+                                        <div class="card-body" style="overflow-y: auto; max-height: 500px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-hoverable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-left">#</th>
+                                                            <th class="text-left">Item Name</th>
+                                                            <th class="text-left">Qty</th>
+                                                            <th class="text-left">Price</th>
+                                                            <th class="text-left">Total/item</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody v-if="processing == false">
+                                                        <tr v-for="(loop, index) in order_details" :key="index">
+                                                            <td class="text-left">{{ index+1 }}</td>
+                                                            <td class="text-left">{{ loop.item.name }}</td>
+                                                            <td class="text-left">{{ loop.qty }}</td>
+                                                            <td class="text-left">Rp. {{ formatCurrency(loop.price) }},00</td>
+                                                            <td class="text-left">Rp. {{ formatCurrency(loop.price * loop.qty) }},00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody v-if="processing == true">
+                                                        <tr>
+                                                            <td colspan="5" class="text-center">
+                                                                <div class="spinner-border text-primary" role="status">
+                                                                    <span class="visually-hidden"></span>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
