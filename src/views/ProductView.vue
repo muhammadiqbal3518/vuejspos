@@ -12,7 +12,7 @@
                                 <input type="text" v-model="keyword" :onchange="searchItem()"placeholder="Search..."class="form-control"style="max-width: 200px;"/>
                             </div>
                         </div>
-                        <div class="card-body pb-5" style="overflow-y: auto; max-height: 750px;">
+                        <div class="card-body pb-5" style="overflow-y: auto; max-height: 550px;">
                             <div class="table-responsive">
                                 <table class="table table-hoverable">
                                     <thead>
