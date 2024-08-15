@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 // Import Bootstrap JS
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-import Vue3TouchEvents from 'vue3-touch-events'
+// import Vue3TouchEvents from 'vue3-touch-events'
 
 // Import Bootstrap SCSS
 // import 'bootstrap/scss/bootstrap.scss'
@@ -20,7 +20,7 @@ import Vue3TouchEvents from 'vue3-touch-events'
 const app = createApp(App)
 
 app.use(router)
-app.use(Vue3TouchEvents)
+// app.use(Vue3TouchEvents)
 // app.use(BootstrapVue3)
 
 app.mount('#app')
