@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-body" style="overflow-y: auto; max-height: 700px;">
-                            <div class="btn-group btn-group-sm mb-2">
+                        <div class="card-body" style="overflow-y: auto; max-height: 600px;">
+                            <div class="btn-group btn-group-sm my-1">
                                 <button type="button" @click="decrease()" class="btn btn-primary" :disabled="val == 1">Prev</button>
                                 <p class="text-center mx-2">
                                     {{ val == 1 ? 'Januari' : val == 2 ? 'Februari' : val == 3 ? 'Maret' : val == 4 ? 'April' : val == 5 ? 'Mei' : val == 6 ? 'Juni' : val == 7 ? 'Juli' : val == 8 ? 'Agustus' : val == 9 ? 'September' : val == 10 ? 'Oktober' : val == 11 ? 'November' : val == 12 ? 'Desember' : '' }}
@@ -13,7 +13,7 @@
                                 <button type="button" @click="increase()" class="btn btn-primary" :disabled="val == 12">Next</button>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-12 col-md-6 col-lg-4">
+                                <div class="col-12 col-md-6 col-lg-4 my-1">
                                     <div class="card">
                                         <div class="card-body">
                                             <p class="text-center">Order Count</p>
@@ -21,7 +21,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6 col-lg-4">
+                                <div class="col-12 col-md-6 col-lg-4 my-1">
                                     <div class="card">
                                         <div class="card-body">
                                             <p class="text-center">Min Purchase</p>
@@ -29,7 +29,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6 col-lg-4">
+                                <div class="col-12 col-md-6 col-lg-4 my-1">
                                     <div class="card">
                                         <div class="card-body">
                                             <p class="text-center">Max Purchase</p>
@@ -37,24 +37,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6 mt-2">
+                                <div class="col-12 my-1">
                                     <div class="card">
-                                        <div class="card-body" style="width:100%; height:310px;">
+                                        <div class="card-body" style="height:300px;width:auto;">
                                             <h6 class="card-title">Order/date chart</h6>
-                                            <canvas id="orderChart" width="400" height="150"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6 mt-2">
-                                    <div class="card">
-                                        <div class="card-body" style="width:100%; height:310px;">
-                                            <h6 class="card-title">Order/datetime chart</h6>
-                                            <canvas id="newChart" width="400" height="150"></canvas>
+                                            <canvas id="orderChart" width="400" height="300"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row my-1">
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -62,7 +54,7 @@
                                                 Order List
                                             </h6>
                                         </div>
-                                        <div class="card-body" style="overflow-y: auto; max-height: 600px;">
+                                        <div class="card-body" style="overflow-y: auto; max-height: 500px;">
                                             <div class="table-responsive">
                                                 <table class="table table-hoverable mb-5">
                                                     <thead>
@@ -94,7 +86,6 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="card-footer"></div>
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +187,6 @@ export default {
             const datas = this.orders.map(order => order.total);
 
             const ctx = document.getElementById('orderChart').getContext('2d');
-            const cta = document.getElementById('newChart').getContext('2d');
             if (this.chart) {
                 this.chart.destroy();
             }
@@ -216,27 +206,6 @@ export default {
                     backgroundColor: backgroundColors,
                     borderWidth: 1
                 }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                        beginAtZero: true
-                        }
-                    }
-                }
-            });
-
-            this.barChart = new Chart(cta, {
-                type: 'line',
-                data: {
-                    labels: label,
-                    datasets: [{
-                        label: 'Line Chart',
-                        data: datas,
-                        borderColor: borderColors,
-                        backgroundColor: backgroundColors,
-                        borderWidth: 1
-                    }]
                 },
                 options: {
                     scales: {
