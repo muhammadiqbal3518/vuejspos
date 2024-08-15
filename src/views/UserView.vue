@@ -9,7 +9,7 @@
                                 Create User
                             </button>
                         </div>
-                        <div class="card-body" style="overflow-y: auto; max-height: 600px;">
+                        <div class="card-body" style="overflow-y: auto; max-height: 550px;">
                             <div class="table-responsive">
                                 <table class="table table-hoverable">
                                     <thead>
